@@ -1,0 +1,7 @@
+<div>
+    <h2>Speech Recognition</h2>
+    <button (click)="startListening()">Start Listening</button>
+    <p *ngIf="recognizedText">You said: {{ recognizedText }}</p>
+    <p *ngIf="answerText">Plant answers: {{answerText}}</p>
+  </div>
+  

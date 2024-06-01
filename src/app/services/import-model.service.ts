@@ -29,10 +29,11 @@ export class ImportModelService{
     }
     else if(fileType == ".fbx"){
         loader = new FBXLoader();
-        loader.load('/assets/models/Sansevieria.fbx', (result => {
-          const model = result.children[0];
+        loader.load('/assets/models/test.fbx', (result => {
+          const model: any = result.children[0];
           model.position.set(0,0,0);
-          model.scale.set(15,15,15);
+          model.scale.set(1,1,1);
+          model.material = new THREE.MeshToonMaterial({color: 0x4444ff});
           this.threeService.getScene().add(model);
         }))
     }

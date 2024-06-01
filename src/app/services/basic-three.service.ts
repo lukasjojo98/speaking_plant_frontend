@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { window } from 'rxjs';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 
 
 @Injectable({
@@ -20,11 +21,15 @@ export class ThreeService {
   public initThree(): void {
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 1000);
+    this.camera.position.set(5,5,5);
     this.renderer = new THREE.WebGLRenderer({antialias: true});
     this.ambientLight = new THREE.AmbientLight(0xFFFFFF);
     this.ambientLight.position.set(0, 20, 0);
     this.scene.add(this.ambientLight);
     const light = new THREE.DirectionalLight( 0xFFFFFF );
+    const gridHelper = new THREE.GridHelper(10, 10);
+    this.scene.add( gridHelper );
+    const controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.scene.add( light );
     this.camera.position.z = 5;
     this.renderer.setSize(800,450);
