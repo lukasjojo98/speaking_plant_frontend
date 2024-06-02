@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #58cf39;
+}
+.item-container{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 0 10px;
+}
+.item{
+    padding: 10px;
+    border-radius: 5px;
+}
+.item:hover{
+    background-color: #00ff73;
+}

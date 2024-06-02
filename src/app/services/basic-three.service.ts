@@ -10,7 +10,7 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 })
 export class ThreeService {
   private scene!: THREE.Scene;
-  private camera!: THREE.OrthographicCamera;
+  private camera!: THREE.PerspectiveCamera | THREE.OrthographicCamera;
   private renderer!: THREE.WebGLRenderer;
   private cube!: THREE.Mesh;
   private ambientLight!: THREE.AmbientLight;
@@ -21,23 +21,24 @@ export class ThreeService {
 
   public initThree(): void {
     this.scene = new THREE.Scene();
-    // this.camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 1000);
     const width = 800;
     const height = 450;
     const aspect = width / height;
     const frustumSize = 10;
-    this.camera = new THREE.OrthographicCamera( -10,9,5,-5,1, 1000 );
-    this.scene.add( this.camera );
-    this.camera.position.set(0,10,20);
-    // this.camera.rotation.set(-0.5, -.2,-.1);
+    // this.camera = new THREE.OrthographicCamera(width / -2, width / 2, height / 2, height / -2, 100, 100000);
+    this.scene.add(this.camera);
+    this.camera.position.set(40,150,150);
+    this.camera.rotateY(Math.PI);
+    this.camera.lookAt(new THREE.Vector3(0,0,0));
     this.scene.background = new THREE.Color(0xffffff);
     this.renderer = new THREE.WebGLRenderer({antialias: true});
     this.ambientLight = new THREE.AmbientLight(0xFFFFFF);
     this.ambientLight.position.set(0, 20, 0);
     this.scene.add(this.ambientLight);
     const light = new THREE.DirectionalLight( 0xFFFFFF );
-    const gridHelper = new THREE.GridHelper(10, 10);
-    this.scene.add( gridHelper );
+    // const gridHelper = new THREE.GridHelper(10, 10);
+    // this.scene.add( gridHelper );
     const controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.scene.add( light );
     this.camera.position.z = 5;
@@ -68,12 +69,11 @@ export class ThreeService {
   public getScene(): THREE.Scene {
     return this.scene;
   }
-  public getCamera(): THREE.OrthographicCamera {
+  public getCamera(): THREE.PerspectiveCamera | THREE.OrthographicCamera  {
     return this.camera;
   }
   private animate(): void {
     requestAnimationFrame(() => this.animate());
-    console.log(this.camera);
     this.renderer.render(this.scene, this.camera);
   }
 }

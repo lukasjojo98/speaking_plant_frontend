@@ -24,10 +24,14 @@ export class ImportModelService{
         loader = new GLTFLoader();
         loader.load('/assets/models/potted_plant.glb', (result => {
           const model: any = result.scene.children[0];
-          model.scale.set(5,5,5);
+          model.scale.set(3,3,3);
           model.position.set(0,0,0);
-          model.material = new THREE.MeshToonMaterial({color: 0x4444ff});
-          // this.threeService.getCamera().lookAt(model.position);
+          // model.material = new THREE.MeshToonMaterial({color: 0x4444ff});
+          this.threeService.getCamera().lookAt(model.position);
+          this.threeService.getCamera().zoom = 8;
+          this.threeService.getCamera().updateProjectionMatrix();
+          this.threeService.getCamera().updateMatrix();
+          model.name = "plant";
           this.threeService.getScene().add(model);
         }));
         /*loader.load('/assets/models/floor.glb', (result) => {

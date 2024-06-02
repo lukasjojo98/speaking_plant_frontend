@@ -1,0 +1,10 @@
+.chat-item{
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border: 1px solid #58cf39;
+    margin: 10px 0;
+    white-space: pre;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 400px;
+}

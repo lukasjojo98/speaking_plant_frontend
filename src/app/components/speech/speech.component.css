@@ -1,32 +1,13 @@
-
-.tracking-in-contract {
-	-webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+.mic-button{
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  width: fit-content;
 }
-
- @-webkit-keyframes tracking-in-contract {
-    0% {
-      letter-spacing: 1em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      letter-spacing: normal;
-      opacity: 1;
-    }
-  }
-  @keyframes tracking-in-contract {
-    0% {
-      letter-spacing: 1em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      letter-spacing: normal;
-      opacity: 1;
-    }
-  }
+.mic-button:hover {
+  background-color: #58cf39;
+}
+.header{
+  display: flex;
+  justify-content: center;
+}

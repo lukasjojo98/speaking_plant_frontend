@@ -1,7 +1,8 @@
 <div>
-    <h2>Speech Recognition</h2>
-    <button (click)="startListening()">Start Listening</button>
-    <p *ngIf="recognizedText">You said: {{ recognizedText }}</p>
+    
+    <div class="header"><h2>Start talking to your plant!</h2></div>
+    <div class="mic-button" (click)="startListening()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="mic"></mat-icon></div>
     <p *ngIf="answerText">Plant answers: {{answerText}}</p>
+    <app-chat [prompt]="recognizedText"></app-chat>
   </div>
   

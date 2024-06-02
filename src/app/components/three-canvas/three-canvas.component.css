@@ -1,4 +1,10 @@
 .container{
     display: flex;
     justify-content: space-around;
+    margin: 20px;
+}
+.container div{
+    border-radius: 5px;
+    border: 1px solid #58cf39;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
