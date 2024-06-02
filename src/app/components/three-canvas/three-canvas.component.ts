@@ -20,6 +20,6 @@ export class ThreeCanvasComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     this.canvasContainer.nativeElement.appendChild(this.threeService.getRendererElement());
-    this.importModelService.importModel(".fbx");
+    this.importModelService.importModel(".glb");
   }
 }

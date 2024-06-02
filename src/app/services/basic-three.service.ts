@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 
 
 
@@ -9,7 +10,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 })
 export class ThreeService {
   private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera;
+  private camera!: THREE.OrthographicCamera;
   private renderer!: THREE.WebGLRenderer;
   private cube!: THREE.Mesh;
   private ambientLight!: THREE.AmbientLight;
@@ -20,8 +21,16 @@ export class ThreeService {
 
   public initThree(): void {
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 1000);
-    this.camera.position.set(5,5,5);
+    // this.camera = new THREE.PerspectiveCamera(75, 16/9, 0.1, 1000);
+    const width = 800;
+    const height = 450;
+    const aspect = width / height;
+    const frustumSize = 10;
+    this.camera = new THREE.OrthographicCamera( -10,9,5,-5,1, 1000 );
+    this.scene.add( this.camera );
+    this.camera.position.set(0,10,20);
+    // this.camera.rotation.set(-0.5, -.2,-.1);
+    this.scene.background = new THREE.Color(0xffffff);
     this.renderer = new THREE.WebGLRenderer({antialias: true});
     this.ambientLight = new THREE.AmbientLight(0xFFFFFF);
     this.ambientLight.position.set(0, 20, 0);
@@ -32,10 +41,26 @@ export class ThreeService {
     const controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.scene.add( light );
     this.camera.position.z = 5;
-    this.renderer.setSize(800,450);
-    this.scene.background = new THREE.Color(0xadd8e6);
+    this.renderer.setSize(800, 450);
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1.8;
+    const sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(1, 50, 50),
+      new THREE.MeshStandardMaterial({roughness: 0, metalness: 0.5, color: 0xff0000})
+    );
+    // this.scene.add(sphere);
     // this.orbitControlService.enableOrbitControls(this.camera, this.renderer.domElement);
     this.animate();
+    this.initLighting();
+  }
+  public initLighting(): void {
+    const hdrURL = new URL('assets/MR_INT-004_BigWindowTree_Thea.hdr', window.location.origin);
+    const loader = new RGBELoader();
+    loader.load(hdrURL.href, (texture) => {
+        this.scene.environment = texture;
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+      	// this.scene.background = texture;
+    }); 
   }
   public getRendererElement(): HTMLElement {
     return this.renderer.domElement;
@@ -43,8 +68,12 @@ export class ThreeService {
   public getScene(): THREE.Scene {
     return this.scene;
   }
+  public getCamera(): THREE.OrthographicCamera {
+    return this.camera;
+  }
   private animate(): void {
     requestAnimationFrame(() => this.animate());
+    console.log(this.camera);
     this.renderer.render(this.scene, this.camera);
   }
 }
