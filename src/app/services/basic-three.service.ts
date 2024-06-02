@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
 
 

@@ -1,8 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import * as THREE from 'three';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js';
 import { ThreeService } from './basic-three.service';
 
 
