@@ -4,7 +4,7 @@
 <div>
     <div class="prompt-container">
         <div class="prompt-item">
-            <input type="text" id="prompt" #promptValue (keydown.enter)="handleClick(promptValue.value)">
+            <input type="text" id="prompt" #promptValue (keydown.enter)="handleClick(promptValue.value)" placeholder="Wie geht es dir?, Wie kann ich dir helfen?">
             <div class="prompt-button" (click)="handleClick(promptValue.value)">
                 <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="send"></mat-icon>
             </div>
