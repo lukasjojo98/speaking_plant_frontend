@@ -1,5 +1,14 @@
-<div class="chat-container">
-    <div class="chat-item">
-    {{textToShow}}
+<div class="mic-button" (click)="startListening()"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="mic"></mat-icon></div>
+<div class="chat-container" #container>
+</div>
+<div>
+    <div class="prompt-container">
+        <div class="prompt-item">
+            <input type="text" id="prompt" #promptValue (keydown.enter)="handleClick(promptValue.value)">
+            <div class="prompt-button" (click)="handleClick(promptValue.value)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="send"></mat-icon>
+            </div>
+        </div>
     </div>
 </div>
+

@@ -17,26 +17,4 @@ export class SpeechComponent {
   isListening: boolean = false;
 
   constructor(private speechService: SpeechService) { }
-
-  startListening(): void {
-    this.isListening = true;
-    try {
-      this.speechService.startListening((text: string) => {
-        this.recognizedText = text;
-        if(this.recognizedText == "wie geht es dir"){
-          this.answerText = "mir geht es gut.";
-        }
-        this.handleSpeechCommand(text);
-        this.isListening = false;
-      });
-    } catch (error) {
-      console.error(error);
-      this.isListening = false;
-    }
-  }
-
-  handleSpeechCommand(command: string): void {
-    // Implement your logic here to handle the spoken command
-    console.log(`Recognized command: ${command}`);
-  }
 }

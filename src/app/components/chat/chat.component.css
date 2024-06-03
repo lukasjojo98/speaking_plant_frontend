@@ -1,10 +1,54 @@
 .chat-item{
+    overflow-y: auto;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 10px;
     border: 1px solid #58cf39;
     margin: 10px 0;
     white-space: pre;
     font-family: 'Courier New', Courier, monospace;
     min-width: 400px;
+}
+.prompt-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.prompt-item div{
+    display: flex;
+    align-items: center;
+}
+.prompt-item div:hover{
+    cursor: pointer;
+}
+.chat-container {
+    position: fixed;
+    height: 300px;
+    overflow-y: scroll;
+}
+input{
+    min-width: 400px;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 30px;
+}
+.prompt-button{
+    position: absolute;
+    margin-left: 360px;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: #58cf39;
+}
+.prompt-container{
+    position: relative;
+    top: 300px;
+}
+.mic-button{
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+}
+.mic-button:hover {
+    background-color: #58cf39;
 }

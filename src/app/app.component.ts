@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ThreeCanvasComponent } from './components/three-canvas/three-canvas.component';
 import { PlantMenuComponent } from './components/plant-menu/plant-menu.component';
@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
   title = 'speaking_plant_frontend';
 }

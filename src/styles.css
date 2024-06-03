@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.chat-item{
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 10px;
+    border: 1px solid #58cf39;
+    margin: 10px 0;
+    white-space: pre;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 400px;
+    overflow-y: auto;
+}
