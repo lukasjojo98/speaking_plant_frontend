@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
 import { ThreeService } from '../../services/basic-three.service';
 import { PlantMenuComponent } from '../plant-menu/plant-menu.component';
 import { ImportModelService } from '../../services/import-model.service';
@@ -12,7 +12,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
   templateUrl: './three-canvas.component.html',
   styleUrl: './three-canvas.component.css'
 })
-export class ThreeCanvasComponent implements AfterViewInit{
+export class ThreeCanvasComponent implements AfterViewInit, OnInit{
   @ViewChild('canvasContainer', { static: true }) canvasContainer!: ElementRef;
   mdq: MediaQueryList;
   mediaQueryListener:()=>void;
@@ -27,16 +27,18 @@ export class ThreeCanvasComponent implements AfterViewInit{
     this.mediaQueryListener = () => {
       if(this.mdq.matches){
         changeDetectorRef.detectChanges();
-        const camera: any = this.threeService.getCamera();
-        camera.aspect = 300 / 450;
-        this.threeService.getCamera().updateProjectionMatrix();
-        this.threeService.getRenderer().setSize(300, 450);
+        this.threeService.setLayout(300, 450);
       }
       else {
-        this.threeService.setStartLayout();
+        this.threeService.setLayout(800, 450);
       }
       }     
     this.mdq.addListener(this.mediaQueryListener);
+  }
+  ngOnInit(): void {
+    if(window.innerWidth < 700) {
+      this.threeService.setLayout(300, 450);
+    }
   }
 
   ngAfterViewInit(): void {

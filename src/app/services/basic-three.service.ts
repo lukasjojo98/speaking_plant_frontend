@@ -79,9 +79,9 @@ export class ThreeService {
     requestAnimationFrame(() => this.animate());
     this.renderer.render(this.scene, this.camera);
   }
-  public setStartLayout(): void {
-    this.camera.aspect = 800/450;
-    this.renderer.setSize(800, 450);
+  public setLayout(width: number, height: number): void {
+    this.camera.aspect = width / height;
+    this.renderer.setSize(width, height);
     this.camera.updateProjectionMatrix();
   }
 }
