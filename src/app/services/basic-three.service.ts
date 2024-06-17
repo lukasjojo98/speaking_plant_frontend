@@ -10,7 +10,7 @@ import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 })
 export class ThreeService {
   private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera | THREE.OrthographicCamera;
+  private camera!: any;
   private renderer!: THREE.WebGLRenderer;
   private cube!: THREE.Mesh;
   private ambientLight!: THREE.AmbientLight;
@@ -69,11 +69,19 @@ export class ThreeService {
   public getScene(): THREE.Scene {
     return this.scene;
   }
-  public getCamera(): THREE.PerspectiveCamera | THREE.OrthographicCamera  {
+  public getRenderer(): THREE.WebGLRenderer {
+    return this.renderer;
+  }
+  public getCamera(): any  {
     return this.camera;
   }
   private animate(): void {
     requestAnimationFrame(() => this.animate());
     this.renderer.render(this.scene, this.camera);
+  }
+  public setStartLayout(): void {
+    this.camera.aspect = 800/450;
+    this.renderer.setSize(800, 450);
+    this.camera.updateProjectionMatrix();
   }
 }
