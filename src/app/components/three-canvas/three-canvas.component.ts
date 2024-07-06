@@ -4,11 +4,12 @@ import { PlantMenuComponent } from '../plant-menu/plant-menu.component';
 import { ImportModelService } from '../../services/import-model.service';
 import { SpeechComponent } from '../speech/speech.component';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-three-canvas',
   standalone: true,
-  imports: [PlantMenuComponent, SpeechComponent],
+  imports: [PlantMenuComponent, SpeechComponent, NavbarComponent],
   templateUrl: './three-canvas.component.html',
   styleUrl: './three-canvas.component.css'
 })

@@ -1,0 +1,39 @@
+.search-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+    gap: 20px;
+}
+.search-item input {
+    min-width: 400px;
+    border-radius: 5px;
+    font-size: 20px;
+    height: 30px;
+}
+.prompt-button{
+    position: absolute;
+    margin-left: 370px;
+    padding: 2px;
+    border-radius: 5px;
+}
+.row {
+    display: flex;
+    gap: 20px;
+}
+.item {
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

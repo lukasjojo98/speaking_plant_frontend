@@ -1,12 +1,13 @@
 <div class="container">
     <div class="item-container">
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></div>
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="people"></mat-icon></div>
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="school"></mat-icon></div>
+        <div class="item" id="home" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="home" fontIcon="home"></mat-icon></div>
+        <div class="item" id="community" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="community" fontIcon="people"></mat-icon></div>
+        <div class="item" id="kbase" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="kbase" fontIcon="school"></mat-icon></div>
     </div>
     <div class="item-container">
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="spa"></mat-icon></div>
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon></div>
-        <div class="item"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="account_circle"></mat-icon></div>
+        <div class="item" id="plant" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="plant" fontIcon="spa"></mat-icon></div>
+        <div class="item" id="chat" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="chat" fontIcon="chat"></mat-icon></div>
+        <div class="item" id="settings" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="settings" fontIcon="settings"></mat-icon></div>
+        <div class="item" id="profile" (click)="this.navigate($event)"><mat-icon aria-hidden="false" aria-label="profile" fontIcon="account_circle"></mat-icon></div>
     </div>
 </div>

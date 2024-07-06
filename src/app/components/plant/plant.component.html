@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <button mat-button>Basic</button>
+    <div class="item">
+        <img src="https://www.ikea.com/de/de/images/products/aglaonema-pflanze__1221135_pe914303_s5.jpg?f=xl" alt="plant-image">
+    </div>
+    <div class="chart-container">
+        <div class="row">
+            <div>
+                <canvas id="chart-2"></canvas>
+            </div>
+            <div class="info-container">
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="info" fontIcon="info"></mat-icon>
+                    <div>Die Feuchtigkeit der Pflanze ist unter ein Minium von x gesunken.</div>
+                </div>
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+                    <div>Bewässere die Pflanze mithilfe des Bewässerungssytems.</div>
+                </div>
+                <div class="item">
+                    <button mat-raised-button>Pflanze bewässern</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div><canvas id="chart-1"></canvas></div>
+            <div class="info-container">
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="info" fontIcon="info"></mat-icon>
+                    <div>Die Nährstoffe der Pflanze befinden sich auf einem angemessenen Niveau.</div>
+                </div>
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="check" fontIcon="check"></mat-icon>
+                    <div>Aktuell ist keine Maßnahme notwendig.</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div><canvas id="chart-3"></canvas></div>
+            <div class="info-container">
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="info" fontIcon="info"></mat-icon>
+                    <div>Die Lichtverhältnisse befinden sich auf einem zu tiefen Niveau.</div>
+                </div>
+                <div class="item">
+                    <mat-icon aria-hidden="false" aria-label="close" fontIcon="close"></mat-icon>
+                    <div>Pflanze in die Sonne stellen.</div>
+                </div>
+                <div class="item">
+                    <button mat-raised-button>Maßnahme treffen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

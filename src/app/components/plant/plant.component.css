@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.item img {
+    width: 400px;
+    border-radius: 5px;
+}
+.row {
+    display: flex;
+    gap: 10px;
+}
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.chart-item {
+    width: 200px;
+    aspect-ratio: 1;
+    background-color: grey;
+    border-radius: 5px;
+}
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.item button {
+    margin: auto;
+}
